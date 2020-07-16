@@ -19,12 +19,10 @@ def is_image_file(event):
     if extension_type(event) in ('png','jpg','bmp','gif','raw'):
         return True
     return False
-
 def is_video_file(event):
     if extension_type(event) in('mov','mp4','avi','flv'):
         return True
     return False
-
 def is_doc_file(event):
     if extension_type(event) in('doc','docx'):
         return True
@@ -38,10 +36,13 @@ def is_presentation_file(event):
         return True
     return False
 def is_code_file(event):
-    if extension_type(event) in('py','cs','js','php','html','sql'):
+    if extension_type(event) in('py','cs','js','php','html','sql','css'):
         return True
     return False
-
+def is_executable_file(event):
+    if extension_type(event) in('exe','msi'):
+        return True
+    return False
 def make_folder(foldername):
     os.chdir('C:\\Users\\jdsjh\\Downloads')
     if os.path.exists(foldername) == True:
