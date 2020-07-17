@@ -10,6 +10,10 @@ from file_utilities import *
 class Handler(FileSystemEventHandler):
     @staticmethod
     def on_created(event):
+        pass
+
+    @staticmethod
+    def on_modified(event):
         if os.path.isdir(event.src_path):
             return
         if is_code_file(event) == True:
@@ -54,10 +58,6 @@ class Handler(FileSystemEventHandler):
             return
 
     @staticmethod
-    def on_modified(event):
-        pass
-
-    @staticmethod
     def on_deleted(event):
         pass
 
@@ -68,7 +68,7 @@ class Handler(FileSystemEventHandler):
 
 file_change_handler = Handler()
 observer = Observer()
-os.chdir('C:\\Users\\jdsjh\\Downloads')
+os.chdir('E:\\Storage\\Download')
 print(os.getcwd())
 observer.schedule(file_change_handler, os.getcwd(), recursive=False,)
 observer.start()
