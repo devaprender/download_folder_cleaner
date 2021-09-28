@@ -5,6 +5,7 @@ from watchdog.observers import Observer
 from watchdog.events import LoggingEventHandler
 from watchdog.events import FileSystemEventHandler
 from file_utilities import *
+from path import *
 
 
 class Handler(FileSystemEventHandler):
@@ -68,9 +69,7 @@ class Handler(FileSystemEventHandler):
 
 file_change_handler = Handler()
 observer = Observer()
-os.chdir('E:\\Storage\\Download')
-print(os.getcwd())
-observer.schedule(file_change_handler, os.getcwd(), recursive=False,)
+observer.schedule(file_change_handler, folder_download, recursive=False,)
 observer.start()
 
 try:

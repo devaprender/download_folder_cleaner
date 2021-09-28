@@ -1,5 +1,6 @@
 import shutil
 import os
+from path import *
 
 
 def extension_type(event):
@@ -67,13 +68,13 @@ def is_executable_file(event):
 
 
 def make_folder(foldername):
-    os.chdir('E:\\Storage\\Download')
+    os.chdir(folder_download)
     if os.path.exists(foldername) == True:
         print('Folder already exists, skipping creation')
-        return os.getcwd() + os.sep + str(foldername)
+        return folder_download + os.sep + str(foldername)
     else:
         os.mkdir(str(foldername))
-        return os.getcwd() + os.sep + str(foldername)
+        return folder_download + os.sep + str(foldername)
 
 
 def move_to_new_corresponding_folder(event, path_to_new_folder):
